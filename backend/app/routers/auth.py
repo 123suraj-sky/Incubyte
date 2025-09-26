@@ -24,6 +24,4 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
     access_token = create_access_token(data={"sub": user["username"], "is_admin": user["is_admin"]})
     return {"access_token": access_token, "token_type": "bearer"}
 
-@router.get("/profile")
-def profile(current_user: dict = Depends(get_current_user)):
-    return {"username": current_user["username"], "is_admin": current_user.get("is_admin", False)}
+
