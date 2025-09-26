@@ -48,10 +48,10 @@ export const AuthProvider = ({ children }) => {
       return true;
     } catch (err) {
       // Convert any error object to string to avoid React rendering issues
-      const errorMessage = err.response?.data?.detail 
-        ? (typeof err.response.data.detail === 'object' 
-            ? JSON.stringify(err.response.data.detail) 
-            : String(err.response.data.detail))
+      const errorMessage = err.response?.data?.detail
+        ? (typeof err.response.data.detail === 'object'
+          ? JSON.stringify(err.response.data.detail)
+          : String(err.response.data.detail))
         : 'Login failed. Please check your credentials.';
       setError(errorMessage);
       return false;

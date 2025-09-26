@@ -38,13 +38,13 @@ const Dashboard = () => {
   // Persist create/update and close modal on success
   const handleSaveSweet = async (id, sweetData) => {
     let success;
-    
+
     if (id) {
       success = await updateSweet(id, sweetData);
     } else {
       success = await addSweet(sweetData);
     }
-    
+
     if (success) {
       handleCloseModal();
     }
@@ -53,7 +53,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Sweet Shop Inventory</h1>
@@ -66,9 +66,9 @@ const Dashboard = () => {
             </button>
           )}
         </div>
-        
+
         <SearchFilters onSearch={searchSweets} />
-        
+
         {loading ? (
           <div className="flex justify-center py-12">
             <LoadingSpinner size="lg" />
@@ -99,7 +99,7 @@ const Dashboard = () => {
           </div>
         )}
       </main>
-      
+
       {modalOpen && (
         <SweetModal
           sweet={currentSweet}

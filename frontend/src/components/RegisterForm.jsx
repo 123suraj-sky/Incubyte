@@ -18,12 +18,12 @@ const RegisterForm = ({ switchToLogin }) => {
   // Validate and submit registration details
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
       setFormError('Passwords do not match');
       return;
     }
-    
+
     const success = await register(username, password);
     if (success) {
       switchToLogin();
@@ -34,13 +34,13 @@ const RegisterForm = ({ switchToLogin }) => {
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
       <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Register</h2>
-      
+
       {(error || formError) && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           {formError || error}
         </div>
       )}
-      
+
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
@@ -55,7 +55,7 @@ const RegisterForm = ({ switchToLogin }) => {
             required
           />
         </div>
-        
+
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
             Password
@@ -69,7 +69,7 @@ const RegisterForm = ({ switchToLogin }) => {
             required
           />
         </div>
-        
+
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirmPassword">
             Confirm Password
@@ -83,7 +83,7 @@ const RegisterForm = ({ switchToLogin }) => {
             required
           />
         </div>
-        
+
         <div className="flex items-center justify-between">
           <button
             type="submit"
@@ -94,9 +94,9 @@ const RegisterForm = ({ switchToLogin }) => {
           </button>
         </div>
       </form>
-      
+
       <div className="text-center mt-4">
-        <button 
+        <button
           onClick={switchToLogin}
           className="text-primary-dark hover:text-primary-light text-sm"
         >

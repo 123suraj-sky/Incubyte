@@ -16,12 +16,12 @@ const Header = () => {
     <header className="bg-gradient-to-r from-primary-light to-primary-dark text-white shadow-lg">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold">Sweet Shop</Link>
-        
+
         <nav className="flex items-center space-x-4">
           {user ? (
             <>
               <span className="text-sm">Welcome, {user.username}</span>
-              <button 
+              <button
                 onClick={logout}
                 className="px-4 py-2 rounded-md bg-white text-primary-dark hover:bg-gray-100 transition-colors"
               >
@@ -29,8 +29,8 @@ const Header = () => {
               </button>
             </>
           ) : (
-            <Link 
-              to="/auth" 
+            <Link
+              to="/auth"
               className="px-4 py-2 rounded-md bg-white text-primary-dark hover:bg-gray-100 transition-colors"
             >
               Login

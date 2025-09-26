@@ -33,13 +33,13 @@ const LoginForm = ({ onSuccess, switchToRegister }) => {
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
       <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Login</h2>
-      
+
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           {error}
         </div>
       )}
-      
+
       {!showAdminQuick && (
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -55,7 +55,7 @@ const LoginForm = ({ onSuccess, switchToRegister }) => {
               required
             />
           </div>
-          
+
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
               Password
@@ -69,7 +69,7 @@ const LoginForm = ({ onSuccess, switchToRegister }) => {
               required
             />
           </div>
-          
+
           <div className="flex items-center justify-between">
             <button
               type="submit"
@@ -81,7 +81,7 @@ const LoginForm = ({ onSuccess, switchToRegister }) => {
           </div>
         </form>
       )}
-      
+
       <div className="text-center mt-4">
         <div className="flex flex-col gap-2 mb-3">
           {!showAdminQuick ? (
@@ -125,7 +125,7 @@ const LoginForm = ({ onSuccess, switchToRegister }) => {
             </div>
           )}
         </div>
-        <button 
+        <button
           onClick={switchToRegister}
           className="text-primary-dark hover:text-primary-light text-sm"
         >

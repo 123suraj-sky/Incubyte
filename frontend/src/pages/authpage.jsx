@@ -21,13 +21,13 @@ const AuthPage = () => {
     <div className="min-h-screen bg-gradient-to-r from-primary-light to-primary-dark flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {isLogin ? (
-          <LoginForm 
-            onSuccess={() => {}} 
-            switchToRegister={() => setIsLogin(false)} 
+          <LoginForm
+            onSuccess={() => { }}
+            switchToRegister={() => setIsLogin(false)}
           />
         ) : (
-          <RegisterForm 
-            switchToLogin={() => setIsLogin(true)} 
+          <RegisterForm
+            switchToLogin={() => setIsLogin(true)}
           />
         )}
       </div>

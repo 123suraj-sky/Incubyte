@@ -30,13 +30,13 @@ const SweetCard = ({ sweet, canEdit = false, showPurchase = true, onEdit, onDele
             {sweet.category}
           </span>
         </div>
-        
+
         <div className="mt-3 flex justify-between items-center">
           <div>
             <p className="text-gray-600 text-sm">Price: ₹{sweet.price}</p>
             <p className="text-gray-600 text-sm">Quantity: {sweet.quantity}</p>
           </div>
-          
+
           <div className="flex items-center gap-3">
             {showPurchase && (
               <button
@@ -49,7 +49,7 @@ const SweetCard = ({ sweet, canEdit = false, showPurchase = true, onEdit, onDele
             )}
             {canEdit && (
               <>
-                <button 
+                <button
                   onClick={() => onEdit && onEdit(sweet)}
                   className="text-primary-dark hover:text-primary-light transition-colors"
                 >
@@ -57,7 +57,7 @@ const SweetCard = ({ sweet, canEdit = false, showPurchase = true, onEdit, onDele
                     <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                   </svg>
                 </button>
-                <button 
+                <button
                   onClick={() => onDelete && onDelete(sweet.id)}
                   className="text-red-600 hover:text-red-700 transition-colors"
                 >
