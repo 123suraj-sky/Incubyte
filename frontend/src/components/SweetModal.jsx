@@ -1,3 +1,12 @@
+/**
+ * SweetModal provides a form to create or edit a sweet.
+ *
+ * @param {Object} props
+ * @param {{id?:string,name?:string,category?:string,price?:number,quantity?:number}} [props.sweet]
+ * @param {() => void} props.onClose
+ * @param {(id:string|undefined, data:Object) => Promise<void>} props.onSave
+ * @param {boolean} props.loading
+ */
 import React, { useState, useEffect } from 'react';
 import LoadingSpinner from './LoadingSpinner';
 
@@ -20,11 +29,13 @@ const SweetModal = ({ sweet, onClose, onSave, loading }) => {
     }
   }, [sweet]);
 
+  // Mirror form inputs into local component state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Coerce number fields and submit to parent handler
   const handleSubmit = (e) => {
     e.preventDefault();
     const sweetData = {

@@ -1,8 +1,15 @@
+/**
+ * SearchFilters provides a simple search input to filter sweets by name.
+ *
+ * @param {Object} props
+ * @param {(query: string) => void} props.onSearch - Triggered with the query string.
+ */
 import React, { useState } from 'react';
 
 const SearchFilters = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Propagate the current search term to parent
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch(searchTerm);

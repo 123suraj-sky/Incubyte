@@ -1,3 +1,7 @@
+/**
+ * Hook that encapsulates sweets data fetching and mutations.
+ * Provides list, loading/error state, and helpers for CRUD/search/purchase.
+ */
 import { useState, useEffect } from 'react';
 import { sweetsService } from '../services/api';
 
@@ -7,6 +11,7 @@ export const useSweets = () => {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Load all sweets
   const fetchSweets = async () => {
     try {
       setLoading(true);
@@ -21,6 +26,7 @@ export const useSweets = () => {
     }
   };
 
+  // Search by free-text name query
   const searchSweets = async (query) => {
     try {
       setLoading(true);
@@ -36,6 +42,7 @@ export const useSweets = () => {
     }
   };
 
+  // Create a new sweet
   const addSweet = async (sweet) => {
     try {
       setLoading(true);
@@ -51,6 +58,7 @@ export const useSweets = () => {
     }
   };
 
+  // Update an existing sweet
   const updateSweet = async (id, sweet) => {
     try {
       setLoading(true);
@@ -66,6 +74,7 @@ export const useSweets = () => {
     }
   };
 
+  // Delete a sweet
   const deleteSweet = async (id) => {
     try {
       setLoading(true);
@@ -81,6 +90,7 @@ export const useSweets = () => {
     }
   };
 
+  // Purchase a sweet and optimistically decrease local quantity
   const purchaseSweet = async (id) => {
     try {
       await sweetsService.purchase(id);

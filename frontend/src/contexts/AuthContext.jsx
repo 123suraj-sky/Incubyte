@@ -1,3 +1,8 @@
+/**
+ * AuthContext and provider for managing user authentication state.
+ *
+ * Exposes `user`, `loading`, `error`, and actions: `login`, `register`, `logout`.
+ */
 import React, { createContext, useState, useEffect } from 'react';
 import { authService } from '../services/api';
 
@@ -17,6 +22,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token]);
 
+  // Fetch current user profile using stored token
   const fetchUserProfile = async () => {
     try {
       setLoading(true);
@@ -32,6 +38,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Authenticate user and persist JWT token
   const login = async (username, password) => {
     try {
       setLoading(true);
@@ -53,6 +60,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Register a new user account
   const register = async (username, password) => {
     try {
       setLoading(true);
@@ -67,6 +75,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Clear session and user data
   const logout = () => {
     localStorage.removeItem('token');
     setToken(null);

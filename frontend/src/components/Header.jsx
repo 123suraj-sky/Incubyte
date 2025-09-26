@@ -1,8 +1,15 @@
+/**
+ * Header component that displays the app title and auth-aware actions.
+ *
+ * - Shows Login link when unauthenticated
+ * - Shows current username and Logout button when authenticated
+ */
 import React from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+  // Access user session and logout action from auth hook
   const { user, logout } = useAuth();
 
   return (

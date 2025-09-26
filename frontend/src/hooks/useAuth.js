@@ -1,3 +1,7 @@
+/**
+ * Hook to access the authentication context.
+ * Must be used within an <AuthProvider>.
+ */
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 

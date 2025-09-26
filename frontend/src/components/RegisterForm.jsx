@@ -1,3 +1,9 @@
+/**
+ * RegisterForm creates a new user account.
+ *
+ * @param {Object} props
+ * @param {() => void} props.switchToLogin - Switches to the login form.
+ */
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import LoadingSpinner from './LoadingSpinner';
@@ -9,6 +15,7 @@ const RegisterForm = ({ switchToLogin }) => {
   const [formError, setFormError] = useState('');
   const { register, loading, error } = useAuth();
 
+  // Validate and submit registration details
   const handleSubmit = async (e) => {
     e.preventDefault();
     

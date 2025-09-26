@@ -1,3 +1,7 @@
+/**
+ * Dashboard displays the sweet inventory with search and CRUD actions.
+ * Requires authentication; redirects to /auth otherwise.
+ */
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
@@ -19,16 +23,19 @@ const Dashboard = () => {
     return <Navigate to="/auth" replace />;
   }
 
+  // Open modal for create or edit
   const handleOpenModal = (sweet = null) => {
     setCurrentSweet(sweet);
     setModalOpen(true);
   };
 
+  // Close modal and clear selection
   const handleCloseModal = () => {
     setModalOpen(false);
     setCurrentSweet(null);
   };
 
+  // Persist create/update and close modal on success
   const handleSaveSweet = async (id, sweetData) => {
     let success;
     

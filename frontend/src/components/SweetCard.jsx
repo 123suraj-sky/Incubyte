@@ -1,8 +1,20 @@
+/**
+ * SweetCard displays a single sweet item with optional actions.
+ *
+ * @param {Object} props
+ * @param {{id:string,name:string,category:string,price:number,quantity:number}} props.sweet
+ * @param {boolean} [props.canEdit=false] - Show edit/delete actions.
+ * @param {boolean} [props.showPurchase=true] - Show purchase action.
+ * @param {(sweet:any)=>void} [props.onEdit]
+ * @param {(id:string)=>void} [props.onDelete]
+ * @param {(id:string)=>Promise<void>} [props.onPurchase]
+ */
 import React from 'react';
 
 const SweetCard = ({ sweet, canEdit = false, showPurchase = true, onEdit, onDelete, onPurchase }) => {
   const [purchasing, setPurchasing] = React.useState(false);
 
+  // Handle purchase action with client-side disabled state
   const handlePurchase = async () => {
     if (!onPurchase || purchasing || sweet.quantity === 0) return;
     setPurchasing(true);

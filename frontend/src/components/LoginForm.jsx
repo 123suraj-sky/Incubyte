@@ -1,3 +1,10 @@
+/**
+ * LoginForm handles user authentication via username/password.
+ *
+ * @param {Object} props
+ * @param {() => void} [props.onSuccess] - Callback after successful login.
+ * @param {() => void} props.switchToRegister - Switches to registration form.
+ */
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import LoadingSpinner from './LoadingSpinner';
@@ -8,6 +15,7 @@ const LoginForm = ({ onSuccess, switchToRegister }) => {
   const [showAdminQuick, setShowAdminQuick] = useState(false);
   const { login, loading, error } = useAuth();
 
+  // Submit user login credentials
   const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await login(username, password);
@@ -16,6 +24,7 @@ const LoginForm = ({ onSuccess, switchToRegister }) => {
     }
   };
 
+  // Quick admin login using provided credentials
   const quickLogin = async (creds) => {
     const success = await login(creds.username, creds.password);
     if (success && onSuccess) onSuccess();

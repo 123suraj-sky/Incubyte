@@ -1,3 +1,7 @@
+/**
+ * AuthPage provides a toggle between Login and Register flows.
+ * Redirects to the dashboard if already authenticated.
+ */
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';

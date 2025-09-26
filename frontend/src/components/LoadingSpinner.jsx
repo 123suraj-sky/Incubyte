@@ -1,3 +1,9 @@
+/**
+ * LoadingSpinner displays a simple animated spinner.
+ *
+ * @param {Object} props
+ * @param {'sm'|'md'|'lg'} [props.size='md'] - Size of the spinner.
+ */
 import React from 'react';
 
 const LoadingSpinner = ({ size = 'md' }) => {
