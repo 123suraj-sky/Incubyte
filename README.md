@@ -100,5 +100,31 @@ This project demonstrates full-stack development skills including:
 - Responsive UI design
 - API documentation with Swagger/OpenAPI
 
+## Screenshots
+
+### Frontend UI Modernization
+
+The frontend has been modernized with contemporary design elements including:
+
+#### 1. Login Page
+![Login Page](screenshots/1_login_page.png)
+*Glassmorphism login page with animated background, input icons, and modern form styling*
+
+#### 2. Register Page
+![Register Page](screenshots/2_register_page.png)
+*Modern register page with form animations, visual feedback, and enhanced user experience*
+
+#### 3. User Dashboard
+![User Dashboard](screenshots/3_user_dashboard.png)
+*Modernized dashboard with enhanced SweetCard components featuring gradients, hover effects, and icons*
+
+#### 4. Admin Login
+![Admin Login](screenshots/4_admin_login.png)
+*Admin login interface with secure authentication and modern design elements*
+
+#### 5. Admin Dashboard
+![Admin Dashboard](screenshots/5_admin_dashboard.png)
+*Administrative dashboard with comprehensive management tools and modern UI*
+
 ---
 *Submitted for Incubyte Online Assessment*
