@@ -1,3 +1,9 @@
+"""Authentication endpoints: register, login, and profile.
+
+Provides JWT-based authentication with password hashing and returns
+access tokens for clients to use with protected routes.
+"""
+
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from app.schemas.user import User
@@ -10,6 +16,10 @@ router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 @router.post("/register")
 def register(user: User):
+    """Create a new user and return an access token.
+
+    Rejects duplicate usernames with HTTP 400.
+    """
     if users_col.find_one({"username": user.username}):
         raise HTTPException(
             status_code=400, detail="Username already registered")
@@ -23,6 +33,7 @@ def register(user: User):
 
 @router.post("/login")
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    """Authenticate a user and return a JWT access token."""
     user = authenticate_user(
         form_data.username, form_data.password, verify_password)
     if not user:
@@ -35,4 +46,5 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
 
 @router.get("/profile")
 def profile(current_user: dict = Depends(get_current_user)):
+    """Return the current authenticated user's profile summary."""
     return {"username": current_user["username"], "is_admin": current_user.get("is_admin", False)}
